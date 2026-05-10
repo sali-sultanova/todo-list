@@ -1,3 +1,22 @@
+def show_tasks(tasks):
+    if not tasks:
+        print("Список задач пуст")
+    else:
+        for i, task in enumerate(tasks, 1):
+            print(f"{i}. {task}")
+
+def edit_task(tasks):
+    print(f"Ваши задачи: ")
+    show_tasks(tasks)
+    num = int(input("Введите номер задачи для изменения: "))
+    if 1 <= num <= len(tasks):
+        new_task = input("Введите измененный текст задачи: ")
+        tasks[num-1] = new_task
+        print("Задача обновлена")
+    else:
+        print("Неправильный номер задачи")
+
+
 tasks = []
 
 def delete_task(tasks):
@@ -9,11 +28,11 @@ while True:
     if choice == 1:
         pass
     elif choice == 2:
-        print(tasks)
+        show_tasks(tasks)
     elif choice == 3:
         delete_task(tasks)
     elif choice == 4:
-        pass
+        edit_task(tasks)
     else:
         print("error")
 
