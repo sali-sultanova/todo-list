@@ -16,17 +16,22 @@ def edit_task(tasks):
     else:
         print("Неправильный номер задачи")
 
-
 tasks = []
+
+def add_task():
+    task = input("Введите задачу: ")
+    tasks.append(task)
+    print("Задача добавлена!")
 
 def delete_task(tasks):
     print(tasks)
     tasks.pop(int(input("Номер задачи: ")) - 1)   
 
+
 while True:
     choice = int(input("1- Добавить, 2-Просмотреть, 3-Удалить, 4-Изменить"))
     if choice == 1:
-        pass
+        add_task()
     elif choice == 2:
         show_tasks(tasks)
     elif choice == 3:
